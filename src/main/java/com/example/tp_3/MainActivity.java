@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,9 +73,14 @@ public class MainActivity extends AppCompatActivity {
                         sexe = "Homme";
                         break;
                 }
+                if(nom != "" && prenom != "" && dprt != ""){
+                    arrlist.add(nom + " " + prenom + " " + sexe + " " + dprt);
+                    adapter.notifyDataSetChanged();
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "Veuillez saisir les données", Toast.LENGTH_SHORT).show();
+                }
 
-                arrlist.add(nom + " " + prenom + " " + sexe + " " + dprt);
-                adapter.notifyDataSetChanged();
 
 
             }
